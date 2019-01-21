@@ -1,0 +1,21 @@
+Change ubuntu server to desktop and xRDP remote
+-------------------------------------
+sudo aptitude install ubuntu-desktop
+sudo apt-get install update-manager
+sudo apt-get update
+sudo apt-get install xrdp
+sudo apt-get install xfce4
+sudo apt-get install xfce4-terminal
+sudo apt-get install gnome-icon-theme-full tango-icon-theme
+echo xfce4-session >~/.xsession
+vi /etc/xrdp/startwm.sh
+-------------------------------------
+#!/bin/sh
+if [ -r /etc/default/locale ]; then
+  . /etc/default/locale
+  export LANG LANGUAGE
+fi
+startxfce4
+-------------------------------------
+sudo service xrdp restart
+-------------------------------------
